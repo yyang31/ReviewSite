@@ -1,0 +1,146 @@
+/*
+color:
+main-blue: rgb(68, 97, 145)
+main-blue-hover: rgb(47, 83, 142)
+main-green: rgb(62, 126, 135)
+soft-white: rgb(229, 229, 229)
+
+breakpoints:
+Extra small   <768px
+Small         >=768px
+Medium        >=992px
+Large         >=1200px
+*/
+
+#featureGallery{
+  height: 300px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px){
+  #featureGallery{
+    height: 150px;
+  }
+}
+
+#goLeft,
+#goRight{
+  height: calc(100% - 20px);
+  top: 10px;
+  position: absolute;
+  color: rgb(68, 97, 145);
+  font-size: 40px;
+  cursor: pointer;
+  min-width: 60px;
+}
+
+#goLeft{
+  left: 10px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  background-image: linear-gradient(-90deg, transparent, rgba(255, 255, 255, 0.8));
+}
+
+#goLeft:hover{
+  color: rgb(47, 83, 142);
+  background-image: linear-gradient(-90deg, transparent, rgba(255, 255, 255, 1));
+}
+
+#goRight{
+  right: 10px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0.8), transparent);
+}
+
+#goRight:hover{
+  color: rgb(47, 83, 142);
+  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1), transparent);
+}
+
+#goLeft i,
+#goRight i{
+  position: absolute;
+  top: calc(50% - 15px);
+}
+
+#goLeft i{
+  left: 5px;
+}
+
+#goRight i{
+  right: 5px;
+}
+
+#galleryCont{
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+}
+
+.feature-cont{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.feature-cont img{
+  width: 100%;
+  height: auto;
+}
+
+.feature-cont:not(.active){
+  display: none;
+}
+
+#leftBodyCont,
+#rightBodyCont{
+  display: inline-block;
+  float: left;
+  width: 50%;
+}
+
+@media screen and (max-width: 992px) {
+  #leftBodyCont,
+  #rightBodyCont{
+    width: 100%;
+  }
+}
+
+.section {
+  display: inline-block;
+  margin: 20px 10px;
+  float: left;
+}
+
+.section h1 {
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 10px 0;
+}
+
+.section-body{
+  padding: 20px;
+  background-color: rgba(229, 229, 229, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.section.w-50{
+  width: calc(50% - 20px);
+}
+
+#topSection{
+  height: 300px;
+}
+
+/* FOOTER */
+#footer {
+  background-color: rgb(224, 236, 255);
+}

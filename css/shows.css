@@ -1,0 +1,117 @@
+/*
+color:
+main-blue: rgb(68, 97, 145)
+main-blue-hover: rgb(47, 83, 142)
+main-green: rgb(62, 126, 135)
+soft-white: rgb(229, 229, 229)
+
+breakpoints:
+Extra small   <768px
+Small         >=768px
+Medium        >=992px
+Large         >=1200px
+*/
+
+#filterCont{
+  padding: 10px 30px;
+}
+
+#filterCont,
+#resultCont{
+  width: calc(100% - 20px);
+  background-color: rgba(229, 229, 229, 0.5);
+  margin: 15px 10px 10px 10px;
+  border-radius: 25px;
+  display: inline-block;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.filterType{
+  min-width: 50px;
+  display: inline-block;
+}
+
+.filterIcon{
+  height: 100%;
+}
+
+.filterIcon i{
+  font-size: 25px;
+  color: rgb(229, 229, 229);
+  cursor: pointer;
+}
+
+.filterIcon i:hover{
+  color: white;
+}
+
+#resultCont ul{
+  padding: 0;
+  list-style: none;
+}
+
+#resultCont li{
+  max-height: 300px;
+  overflow: hidden;
+  margin: 20px 0;
+  padding: 10px 30px;
+}
+
+#resultCont li:nth-child(even){
+  background-color: rgba(229, 229, 229, 0.5);
+}
+
+.showTitle{
+  width: 120px;
+  height: 100%;
+  display: inline-block;
+  float: left;
+}
+
+.showTitle h2{
+  margin: 0;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.showTitle img{
+  width: 100%;
+  height: auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.rating{
+  margin-top: 10px;
+}
+
+.rating i{
+  color: rgb(68, 97, 145);
+}
+
+.showDetail{
+  width: calc(100% - 120px);
+  max-height: calc(300px - 20px);
+  overflow: hidden;
+  display: inline-block;
+  float: left;
+  padding: 10px;
+  position: relative;
+}
+
+.aboutShow,
+.topReview{
+  padding: 10px;
+  width: 50%;
+  height: 100%;
+  float: left;
+  text-overflow: ellipsis;
+}
+
+.aboutShow::before{
+  content: "About";
+  position: absolute;
+  top: 0;
+  left: 10px;
+  color: white;
+  font-weight: bold;
+}
