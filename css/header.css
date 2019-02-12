@@ -35,7 +35,7 @@ body{
 }
 
 body *{
-  transition-duration: 0.5s;
+  transition-duration: 0.25s;
   transition-timing-function: ease;
   font-family: Arial;
 }
@@ -146,11 +146,20 @@ h2{
 
 .nav-sub-item:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* MAINBODY */
 #mainBody {
   margin-top: 80px;
   overflow: auto;
+}
+
+/* RATING */
+.rating{
+  margin-top: 10px;
+}
+
+.rating i{
+  color: rgb(68, 97, 145);
 }

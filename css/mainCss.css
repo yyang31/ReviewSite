@@ -13,7 +13,7 @@ Large         >=1200px
 */
 
 #featureGallery{
-  height: 400px;
+  height: 350px;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -21,7 +21,7 @@ Large         >=1200px
 
 @media screen and (max-width: 768px){
   #featureGallery{
-    height: 250px;
+    height: 200px;
   }
 }
 
@@ -85,13 +85,13 @@ Large         >=1200px
   height: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 25px;
-  overflow: scroll;
+  overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .feature-cont img{
-  height: 100%;
-    width: auto;
+  height: auto;
+  width: 100%;
 }
 
 .feature-cont:not(.active){
@@ -121,7 +121,7 @@ Large         >=1200px
 .section-body{
   padding: 20px;
   background-color: rgba(229, 229, 229, 0.7);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
   border-radius: 25px;
 }
 
@@ -143,17 +143,32 @@ Large         >=1200px
   margin-right: 0;
 }
 
+.section-anime-block:hover{
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+  height: 116%;
+  position: relative;
+  top: -8%;
+}
+
+.rating i{
+  text-shadow: 0 1px 15px rgba(0, 0, 0, 0.8);
+}
+
+.section-anime-block:hover .rating{
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5% 0;
+}
+
 .section-anime-block img{
   height: 100%;
   width: auto;
   cursor: pointer;
-}
-
-.section-anime-block img:hover{
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
-  height: 110%;
-  position: relative;
-  top: -5%;
 }
 
 #topSection{
