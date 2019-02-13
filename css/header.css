@@ -12,10 +12,23 @@ Medium        >=992px
 Large         >=1200px
 */
 
-.hide{
-  display: none;
+/* Fonts */
+@font-face {
+  font-family: avenirNext-BoldCn;
+  src: url(../fonts/avenir/AvenirNextLTPro-BoldCn.otf);
 }
 
+@font-face {
+  font-family: avenir-Medium;
+  src: url(../fonts/avenir/AvenirLTStd-Medium.otf);
+}
+
+@font-face {
+  font-family: avenir-Book;
+  src: url(../fonts/avenir/AvenirLTStd-Book.otf);
+}
+
+/* Page Related */
 html{
   background-image: url("../images/page_background.jpg");
   background-repeat: no-repeat;
@@ -37,7 +50,7 @@ body{
 body *{
   transition-duration: 0.25s;
   transition-timing-function: ease;
-  font-family: Arial;
+  font-family: avenir-Book;
 }
 
 h1 {
