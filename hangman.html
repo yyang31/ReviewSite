@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hangman Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/DIYBootstrap.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/hangman.css" />
+</head>
+<body>
+  <div id="navbarCont">
+    <!-- navbar -->
+    <div id="navbar">
+      <div id="pageLoader"></div>
+      <!-- Home -->
+      <div class="nav-item">
+        <a class="nav-icon" href="main.html"><i class="fab fa-fort-awesome"></i></a>
+      </div>
+
+      <!-- Categories -->
+      <div class="nav-item">
+        <a class="nav-icon" href="shows.html"><i class="fas fa-th-list"></i></a>
+        <div class="nav-sub-item-cont">
+          <a class="nav-sub-item" href="shows.html?category=anime">
+            Anime
+          </a>
+          <a class="nav-sub-item" href="shows.html?category=movie">
+            Movies
+          </a>
+        </div>
+      </div>
+
+      <!-- Ranking -->
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-poll"></i></div>
+      </div>
+
+      <!-- Hangman Game -->
+      <div class="nav-item">
+        <a class="nav-icon" href="hangman.html"><i class="fas fa-male"></i></a>
+      </div>
+
+      <!-- Search -->
+      <div class="nav-item">
+        <div class="nav-icon"><i class="fas fa-search"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="mainCont">
+    <!-- main body -->
+    <div id="mainBody">
+      <h1>Hangman</h1>
+      <div id="gameBody">
+        <div id="guessText"></div>
+      </div>
+      <button type="button" name="button" onclick="newGame()">New Game</button>
+      <button type="button" name="button">Guess Word</button>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div id="footer">
+    <script type="text/javascript" src="js/mainJs.js"></script>
+    <script type="text/javascript" src="js/hangman.js"></script>
+  </div>
+</body>
+</html>

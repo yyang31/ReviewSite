@@ -18,8 +18,8 @@ Large         >=1200px
 
 #filterCont,
 #resultCont{
-  width: calc(100% - 20px);
-  margin: 15px 10px 10px 10px;
+  width: 100%;
+  margin: 15px 0;
   border-radius: 25px;
   display: inline-block;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
