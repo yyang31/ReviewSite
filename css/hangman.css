@@ -1,4 +1,35 @@
+#mainCont{
+  text-align: center;
+  background-color: rgba(229, 229, 229, 0.5);
+}
+
 #gameBody{
   color: white;
   font-size: 30px;
+}
+
+#hangmanIconCont{
+  height: 0;
+  overflow: hidden;
+}
+
+#hangmanPole{
+  height: 200px;
+  width: 100px;
+  border-left: 5px solid white;
+  border-top: 5px solid white;
+  position: absolute;
+  top: 0;
+  left: 7px;
+  z-index: -1;
+}
+
+#hangmanIcon{
+  font-size: 200px;
+  color: white;
+}
+
+.btn{
+  display: block;
+  margin: 10px auto;
 }

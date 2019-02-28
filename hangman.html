@@ -55,9 +55,16 @@
       <div id="gameBody">
         <div id="guessText"></div>
       </div>
-      <button type="button" name="button" onclick="newGame()">New Game</button>
-      <button type="button" name="button">Guess Word</button>
+      <div id="hangmanIconCont">
+        <div id="hangmanPole"></div>
+        <i id="hangmanIcon" class="fas fa-male"></i>
+      </div>
+      <button id="guessWord" class="d-none btn" type="button" name="button">Guess Word</button>
+      <button id="newGame" class="btn" type="button" name="button" onclick="newGame()">New Game</button>
     </div>
+  </div>
+
+  <div class="modal">
   </div>
 
   <!-- footer -->

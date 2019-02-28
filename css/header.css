@@ -73,6 +73,7 @@ h2{
 
 #mainCont {
   width: 1000px;
+  height: 100%;
   margin: auto;
   overflow: auto;
   position: relative;
@@ -191,4 +192,27 @@ h2{
 
 .rating i{
   color: rgb(68, 97, 145);
+}
+
+/* UI */
+.btn{
+  min-width: 200px;
+  border: none;
+  min-height: 50px;
+  border-radius: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(68, 97, 145);
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: rgb(47, 83, 142);
+}
+
+.btn.disable{
+  background-color: rgb(229, 229, 229);
+  color: rgb(68, 97, 145);
+  cursor: default;
 }
