@@ -1,4 +1,9 @@
 // modal
+if(document.body.contains(document.getElementsByClassName("modal")[0])){
+  document.getElementsByClassName("modalClose")[0].onclick = function(){
+    modalHide();
+  }
+}
 function modalShow(){
   document.getElementsByClassName("modal")[0].style.display="block";
   setTimeout(function(){
@@ -11,10 +16,6 @@ function modalHide(){
   setTimeout(function(){
     document.getElementsByClassName("modal")[0].style.display="none";
   }, 100);
-}
-
-document.getElementsByClassName("modalClose")[0].onclick = function(){
-  modalHide();
 }
 
 function modalError(msg){
