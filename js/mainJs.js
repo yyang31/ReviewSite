@@ -1,9 +1,4 @@
-window.onload = function () {
-  document.getElementById("pageLoader").style.visibility = "hidden";
-
-  // feature slide show timer
-  var slideTimer = setInterval(featureSlide, 2000);
-}
+var slideTimer = setInterval(featureSlide, 2000);
 
 function featureSlide() {
   var featureCont = document.getElementsByClassName("feature-cont");

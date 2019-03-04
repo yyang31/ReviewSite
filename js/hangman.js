@@ -34,13 +34,22 @@ function newGame(){
 
   newWord.generate();
 
+  console.log(newWord.word);
+
   for(var i = 0; i < newWord.word.length; i++){
-    guessText.innerHTML += "_ ";
+    var curChar = newWord.word.charAt(i);
+    if(curChar >= "A" && curChar <= "Z"){
+      guessText.innerHTML += "_ ";
+    }else if(curChar == " "){
+      guessText.innerHTML += "&nbsp ";
+    }else{
+      guessText.innerHTML += curChar + " ";
+    }
   }
 
   gameRunning = true;
   tries = 0;
-  document.getElementById("hangmanIconCont").style.height = 0;
+  document.getElementById("hangmanIcon").style.height = 0;
 
   // hide and show the btn
   document.getElementById("guessWord").classList.remove("d-none");
@@ -66,16 +75,23 @@ function guessLetter(letter){
   }
   document.getElementById("guessText").innerHTML = guessText;
 
+  // if the inputed text is a hit
   if(!found){
     tries++;
-    var height = 40 * tries;
-    document.getElementById("hangmanIconCont").style.height = height + "px";
+    var height = 20 * tries;
+    document.getElementById("hangmanIcon").style.height = height + "%";
 
+    // if excceed 5 tries
     if(tries == 5){
       gameRunning = false;
-      alert("YOU LOST!");
+      modalError("You Lost!");
     }
   }
+}
+
+// guess word
+document.getElementById("guessWord").onclick = function(){
+  modalError("testing");
 }
 
 document.onkeydown = function(e){

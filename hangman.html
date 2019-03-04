@@ -52,12 +52,12 @@
     <!-- main body -->
     <div id="mainBody">
       <h1>Hangman</h1>
-      <div id="gameBody">
-        <div id="guessText"></div>
-      </div>
       <div id="hangmanIconCont">
         <div id="hangmanPole"></div>
         <i id="hangmanIcon" class="fas fa-male"></i>
+      </div>
+      <div id="gameBody">
+        <div id="guessText"></div>
       </div>
       <button id="guessWord" class="d-none btn" type="button" name="button">Guess Word</button>
       <button id="newGame" class="btn" type="button" name="button" onclick="newGame()">New Game</button>
@@ -65,11 +65,18 @@
   </div>
 
   <div class="modal">
+    <div class="modalCont">
+      <div class="modalBody"></div>
+      <div class="modalClose">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
   </div>
 
   <!-- footer -->
   <div id="footer">
-    <script type="text/javascript" src="js/mainJs.js"></script>
+    <script type="text/javascript" src="js/footer.js"></script>
+    <script type="text/javascript" src="js/DIYBootstrap.js"></script>
     <script type="text/javascript" src="js/hangman.js"></script>
   </div>
 </body>
