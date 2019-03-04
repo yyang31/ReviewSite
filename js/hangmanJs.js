@@ -8,7 +8,7 @@ xhttp.onreadystatechange = function() {
     wordList = this.responseText;
   }
 };
-xhttp.open("GET", "https://api.datamuse.com/words?ml=duck&sp=b*&max=10", true);
+xhttp.open("GET", "https://api.datamuse.com/words?ml=anime");
 xhttp.send();
 
 // word object
