@@ -207,6 +207,7 @@ h2{
   color: white;
   background-color: rgb(68, 97, 145);
   cursor: pointer;
+  padding: 5px 30px;
 }
 
 .btn:hover{
