@@ -1,9 +1,16 @@
-// modal
+/**
+ * if modal element exist in the current page, add the click trigger for the
+ * close button
+ */
 if(document.body.contains(document.getElementsByClassName("modal")[0])){
   document.getElementsByClassName("modal-close")[0].onclick = function(){
     modalHide();
   }
 }
+
+/**
+ * modalShow - show the modal
+ */
 function modalShow(){
   document.getElementsByClassName("modal")[0].style.display="block";
   setTimeout(function(){
@@ -11,6 +18,9 @@ function modalShow(){
   }, 100);
 }
 
+/**
+ * modalHide - hides the modal
+ */
 function modalHide(){
   document.getElementsByClassName("modal")[0].style.opacity="0";
   setTimeout(function(){
@@ -18,6 +28,11 @@ function modalHide(){
   }, 100);
 }
 
+/**
+ * modalMsg - open the modal and display a message
+ *
+ * @param  {String} msg the message to be displayed
+ */
 function modalMsg(msg){
   var modalBody = document.getElementsByClassName("modal-body")[0];
   document.getElementById("modalBtn").style.display = "none";
@@ -26,9 +41,12 @@ function modalMsg(msg){
   modalBody.innerHTML = msg;
 }
 
-/*
-submitFunction: the function to call when the submit button is clicked (REQUIRED)
-*/
+/**
+ * modalTextInput - open the modal and request a text input form user
+ *
+ * @param  {String} submitFunction the function to call when the submit button
+ *                                 is clicked (REQUIRED)
+ */
 function modalTextInput(submitFunction){
   var mdoalBtn = document.getElementById("modalBtn");
   var modalBody = document.getElementsByClassName("modal-body")[0];

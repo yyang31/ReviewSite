@@ -9,8 +9,8 @@ This is a site for people to review and rate their faviorte animes and movies.
 The Navigation Bar contains ( from left to right ):
 1. the buttom to go back to the home page
 2. the dropdown menu to go the list of animes and movies with options to quickly filter down to only-animes or only-movies
-3. the button that takes teh user to the ranking page ( not yet implemented )
-4. the search button that allow user to search specific anime or movie ( not yet implemented )
+3. the button that takes the user to the ranking page ( not yet implemented )
+4. the button that takes the user to the HangMan Game page
 
 The home page contains:
 1. feature banner showing off the featured shows or news.

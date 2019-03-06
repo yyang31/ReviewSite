@@ -3,7 +3,9 @@ var wordList;
 var tries = 0;
 var numOfCorrect = 0;
 
-// ajax call
+/**
+ * ajax call to get the word bank
+ */
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
@@ -13,7 +15,9 @@ xhttp.onreadystatechange = function() {
 xhttp.open("GET", "https://api.datamuse.com/words?ml=anime");
 xhttp.send();
 
-// word object
+/**
+ * word - word object that contains the required variables for the hangman game
+ */
 function word(){
   this.word = "";
   this.score = 0;
@@ -29,6 +33,9 @@ function word(){
 // creating a new word object
 var newWord = new word();
 
+/**
+ * newGame - initialize/reset certain variables and objects for a new game
+ */
 function newGame(){
   var guessText = document.getElementById("guessText");
 
@@ -70,10 +77,9 @@ function newGame(){
   }
 }
 
-String.prototype.replaceAt=function(index, character) {
-  return this.substr(0, index) + character + this.substr(index+character.length);
-}
-
+/**
+ * gameWon - handles events that happens when user won the game
+ */
 function gameWon(){
   gameRunning = false;
   modalMsg("You Won!");
@@ -81,6 +87,9 @@ function gameWon(){
   document.getElementById("newGame").style.display = "block";
 }
 
+/**
+ * gameLost - handles events that happens when user lose the game
+ */
 function gameLost(){
   gameRunning = false;
   modalMsg("You Lost!");
@@ -89,7 +98,12 @@ function gameLost(){
   document.getElementById("hangmanIcon").classList.add("lost");
 }
 
-// guessing the letter
+/**
+ * guessLetter - determine whether the user guess the letter correctly and
+ *               update the game base on the result
+ *
+ * @param  {Event} e keypress or mouseclick event
+ */
 function guessLetter(e){
   var letter;
   var guessText = document.getElementById("guessText").innerText;
@@ -135,6 +149,12 @@ function guessLetter(e){
   }
 }
 
+/**
+ * guessWord - determine if the user guess the word correctly and update the
+ *             game base on whether they are correct or not
+ *
+ * @param  {String} textInput the word user inputed
+ */
 function guessWord(textInput){
   if(textInput.toUpperCase() == newWord.word){
     var guessText = document.getElementById("guessText");
@@ -151,7 +171,9 @@ function guessWord(textInput){
   }
 }
 
-// generating buttons for mouse input
+/**
+ * Generate the on screen keyboard
+ */
 var mouseInputTarget = document.getElementById("mouseInputButtons");
 for(var i = 65; i <= 90; i++){
   var buttonLetter = String.fromCharCode(i);
@@ -167,11 +189,18 @@ for(var i = 65; i <= 90; i++){
   mouseInputTarget.appendChild(buttonElement);
 }
 
-// guess word
+/**
+ * guessWord - onclick handler for the "Guess Word" button
+ */
 document.getElementById("guessWord").onclick = function(){
   modalTextInput(guessWord);
 }
 
+/**
+ * document - keypress handler when guessing letters using physical keyboard
+ *
+ * @param  {Event} e the kepress event
+ */
 document.onkeypress = function(e){
   var modalDisplay = document.getElementsByClassName("modal")[0].style.display;
 

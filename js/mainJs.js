@@ -1,5 +1,8 @@
 var slideTimer = setInterval(featureSlide, 2000);
 
+/**
+ * featureSlide - animation that switches the feature banner
+ */
 function featureSlide() {
   var featureCont = document.getElementsByClassName("feature-cont");
 
