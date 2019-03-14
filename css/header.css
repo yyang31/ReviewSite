@@ -79,7 +79,6 @@ h2{
   margin: auto;
   overflow: auto;
   position: relative;
-  padding: 10px;
 }
 
 @media screen and (max-width: 992px) {
@@ -184,6 +183,7 @@ h2{
 #mainBody {
   margin-top: 80px;
   overflow: auto;
+  padding: 10px;
 }
 
 /* RATING */
