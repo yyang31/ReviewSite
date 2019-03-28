@@ -1,6 +1,6 @@
 # ReviewSite
 
-URL: http://52.53.171.82/ReviewSite/hangman.html
+URL: http://52.53.171.82/ReviewSite/hangmanReact.html
 
 Issues that I have encountered includes:
 1. Trying to understand and think in React
