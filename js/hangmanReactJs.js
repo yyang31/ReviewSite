@@ -1,28 +1,38 @@
 /**
 Author: Youwei Yang
-Description: Handles the game logic for the hangman.html page
+Description: Handles the game logic for the hangmanReact.html page
 */
 
 // =====================================================================
 
+/**
+ * Generate the buttons from 'A' to 'Z' for mouse/touch input. This will
+ * also disable the buttons with the letters that was already inputed
+ */
 class MouseInput extends React.Component {
+  /**
+   * creates the buttons and disable the buttons with the letters that
+   * were already inputed
+   * 
+   * @returns a list of button elements
+   */
   renderButton = () => {
     let buttons = [];
 
-    for(let i = 65; i < this.props.letters.length + 65; i++){
+    for (let i = 65; i < this.props.letters.length + 65; i++) {
       let charCode = i + 32;
       let buttonLetter = String.fromCharCode(i);
       let buttonId = "button" + buttonLetter;
 
-      if(this.props.letters[i - 65]){
+      if (this.props.letters[i - 65]) {
         buttons.push(
-          <button key={i} id={buttonId} className="mouse-input-letter" onClick = {() => this.props.onClick(charCode)} disabled>
+          <button key={i} id={buttonId} className="mouse-input-letter" onClick={() => this.props.onClick(charCode)} disabled>
             {buttonLetter}
           </button>
         );
-      }else{
+      } else {
         buttons.push(
-          <button key={i} id={buttonId} className="mouse-input-letter" onClick = {() => this.props.onClick(charCode)}>
+          <button key={i} id={buttonId} className="mouse-input-letter" onClick={() => this.props.onClick(charCode)}>
             {buttonLetter}
           </button>
         );
@@ -32,8 +42,13 @@ class MouseInput extends React.Component {
     return buttons;
   }
 
-  render(){
-    return(
+  /**
+   * render the buttons
+   * 
+   * @returns a container containing all the buttons
+   */
+  render() {
+    return (
       <div>
         {
           this.renderButton()
@@ -43,54 +58,30 @@ class MouseInput extends React.Component {
   }
 }
 
-class GameBody extends React.Component{
-  render(){
-    return(
-      <div id="guessText">{this.props.guessText}</div>
-    );
-  }
-}
+/**
+ * display the hangman icon base on the number of tries/attempts
+ * 
+ * @returns a container containing the hangman icon and pole
+ */
+function HangmanIcon(props) {
+  let curHeight = props.tries * 20;
+  let classes = "fas fa-male";
 
-class HangmanIcon extends React.Component {
-  render(){
-    let curHeight = this.props.tries * 20;
-    let classes = "fas fa-male";
-
-    if(this.props.tries >= 5){
-      classes = classes + " lost"
-    }
-
-    return(
-      <div style={{height : 100 + "%"}}>
-        <div id="hangmanPole"></div>
-        <i id="hangmanIcon" className={classes} style={{height : curHeight + "%"}}></i>
-      </div>
-    );
-  }
-}
-
-function GuessWord(props) {
-  // if game IS in progress
-  if(props.inGame){
-    return(
-      <button id="guessWord" className="btn" type="button" name="button" onClick={props.onClick}>Guess Word</button>
-    );
+  if (props.tries >= 5) {
+    classes = classes + " lost"
   }
 
-  return(null);
+  return (
+    <div style={{ height: 100 + "%" }}>
+      <div id="hangmanPole"></div>
+      <i id="hangmanIcon" className={classes} style={{ height: curHeight + "%" }}></i>
+    </div>
+  );
 }
 
-function NewGame(props) {
-  // if game is NOT in progress
-  if(!props.inGame){
-    return(
-      <button id="newGame" className="btn" type="button" name="button" onClick={props.onClick}>New Game</button>
-    );
-  }
-
-  return(null);
-}
-
+/**
+ * Generates a popup message or text input modal
+ */
 class Modal extends React.Component {
   constructor(props) {
     super(props);
@@ -99,25 +90,31 @@ class Modal extends React.Component {
     };
   }
 
-  updateInputValue(e){
+  /**
+   * update the inputValue state
+   */
+  updateInputValue(e) {
     this.setState({
       inputValue: e.target.value.toUpperCase()
     });
   }
 
-  render(){
+  /**
+   * render the modal if props.show were true; otherwise, return null
+   */
+  render() {
     let bodyCont = '';
     let btnClassName = "btn";
 
-    if(this.props.type == "message"){
+    if (this.props.type == "message") {
       bodyCont = <span>{this.props.msg}</span>
-    }else if(this.props.type == "textInput"){
+    } else if (this.props.type == "textInput") {
       bodyCont = <input id="modalTextInputPopup" type="text" placeholder="Guess Word" onChange={(e) => this.updateInputValue(e)} />
       btnClassName += " d-block";
     }
 
-    if(this.props.show){
-      return(
+    if (this.props.show) {
+      return (
         <div className="modal d-block o-1">
           <div className="modalCont">
             <div className="modal-body">
@@ -132,10 +129,13 @@ class Modal extends React.Component {
       );
     }
 
-    return(null);
+    return (null);
   }
 }
 
+/**
+ * the container containing all the game components
+ */
 class MainBody extends React.Component {
   constructor(props) {
     super(props);
@@ -153,13 +153,21 @@ class MainBody extends React.Component {
     };
   }
 
-  // adding keypress event to document
-  componentDidMount(){
+  /**
+   * adding keypress event to document
+   */
+  componentDidMount() {
     document.addEventListener("keypress", (e) => this.guessLetter(e.keyCode));
   }
 
-  // to show or hide the modal
-  showModal(action, type, message){
+  /**
+   * to show or hide a speicific type of modal
+   * 
+   * @param {boolean} action show or hide the modal
+   * @param {string} type message or textInput modal type
+   * @param {string} message text to display when generating a message modal
+   */
+  showModal(action, type, message) {
     this.setState({
       word: this.state.word,
       wordLetterCount: this.state.wordLetterCount,
@@ -174,36 +182,46 @@ class MainBody extends React.Component {
     });
   }
 
-  modalAction(action, inputReturn){
-    if(action == "close"){
+  /**
+   * handler function for the onClick action from the modal
+   * 
+   * @param {string} action close or submit action
+   * @param {string} inputReturn the input text returned from the textInput modal
+   */
+  modalAction(action, inputReturn) {
+    if (action == "close") {
       this.showModal(false);
-    }else if(action == "submit"){
-      if(inputReturn != ''){
+    } else if (action == "submit") {
+      if (inputReturn != '') {
         this.guessWord(inputReturn);
       }
     }
   }
 
-  // handles the on click for 'guess word' button
-  guesWordClick(){
+  /**
+   * handles the on click for 'guess word' button
+   */
+  guesWordClick() {
     this.showModal(true, "textInput", '');
   }
 
-  // handles the on click for 'new game' button
-  newGameOnClick(){
+  /**
+   * handles the on click for 'new game' button
+   */
+  newGameClick() {
     let randomIndex = Math.floor(Math.random() * Math.floor(this.props.wordList.length));
     let newWord = this.props.wordList[randomIndex].word.toUpperCase();
     let letterCount = 0;
     let hiddenWord = "";
 
-    for(var i = 0; i < newWord.length; i++){
+    for (var i = 0; i < newWord.length; i++) {
       var curChar = newWord.charAt(i);
-      if(curChar >= "A" && curChar <= "Z"){
+      if (curChar >= "A" && curChar <= "Z") {
         hiddenWord += "_ ";
         letterCount++;
-      }else if(curChar == " "){
+      } else if (curChar == " ") {
         hiddenWord += "\u00A0 ";
-      }else{
+      } else {
         hiddenWord += curChar + " ";
       }
     }
@@ -224,29 +242,39 @@ class MainBody extends React.Component {
     console.log(newWord);
   }
 
-  gameWonMsg(){
+  /**
+   * display the 'You Won!' message using modal
+   */
+  gameWonMsg() {
     this.showModal(true, "message", "You Won!");
   }
 
-  gameLostMsg(){
+  /**
+   * display the 'You Lost!' message using modal
+   */
+  gameLostMsg() {
     this.showModal(true, "message", "You Lost!");
   }
 
-  // handle the game logic when guessing letters
-  guessLetter(keyCode){
+  /**
+   * game logic when guessing letters
+   * 
+   * @param {int} keyCode the keyCode of the input
+   */
+  guessLetter(keyCode) {
     let tries = this.state.numOfTries;
 
     // if the game is in progress
-    if(this.state.inGame && this.state.showModal == false){
+    if (this.state.inGame && this.state.showModal == false) {
       let upperKeyCode = keyCode - 32;
 
       // if the key code is between 'A' to 'Z'
-      if(upperKeyCode >= 65 && upperKeyCode <= 90){
+      if (upperKeyCode >= 65 && upperKeyCode <= 90) {
         let keyIndex = upperKeyCode - 65;
         let tempKeyPressed = this.state.keyPressed;
 
         // if the key have not been pressed yet
-        if(!tempKeyPressed[keyIndex]){
+        if (!tempKeyPressed[keyIndex]) {
           let found = false;
           let tempGameBodyWord = this.state.gameBodyWord;
           let tempNumOfCorrect = this.state.numOfCorrect;
@@ -256,9 +284,9 @@ class MainBody extends React.Component {
           tempKeyPressed[keyIndex] = 1;
 
           // going through the word to locate the letters
-          for(var i = 0; i < this.state.word.length; i++){
+          for (var i = 0; i < this.state.word.length; i++) {
             var letterIndex = i * 2;
-            if(this.state.word.charAt(i).charCodeAt(0) == upperKeyCode){
+            if (this.state.word.charAt(i).charCodeAt(0) == upperKeyCode) {
               tempGameBodyWord = tempGameBodyWord.substr(0, letterIndex) + String.fromCharCode(upperKeyCode) + tempGameBodyWord.substr(letterIndex + 1);
               found = true;
               tempNumOfCorrect++;
@@ -266,16 +294,16 @@ class MainBody extends React.Component {
           }
 
           // if failed to guess the letter
-          if(!found){
+          if (!found) {
             tries++
 
-            if(tries == 5){
+            if (tries == 5) {
               tempInGame = false;
             }
           }
 
           // checking if player won the game
-          if(tempNumOfCorrect == this.state.wordLetterCount){
+          if (tempNumOfCorrect == this.state.wordLetterCount) {
             tempInGame = false;
             this.gameWonMsg();
           }
@@ -299,30 +327,34 @@ class MainBody extends React.Component {
     }
   }
 
-  // handle the game logic when guessing word
-  guessWord(word){
+  /**
+   * game logic when guessing word
+   * 
+   * @param {string} word the word the user is trying to guess
+   */
+  guessWord(word) {
     let tempKeyPressed = this.state.keyPressed;
     let tries = this.state.numOfTries;
 
     // update the keyPressed with the guessing word
-    for(var i = 0; i < word.length; i++){
+    for (var i = 0; i < word.length; i++) {
       let curKeyCode = word.charAt(i).charCodeAt(0);
 
-      if(curKeyCode >= 65 && curKeyCode <= 90){
+      if (curKeyCode >= 65 && curKeyCode <= 90) {
         tempKeyPressed[curKeyCode - 65] = 1;
       }
     }
 
     // determine win/lose and output appropriate message
-    if(word == this.state.word){
+    if (word == this.state.word) {
       this.gameWonMsg();
-    }else{
+    } else {
       tries = 5;
       this.gameLostMsg();
     }
 
     setTimeout(
-      function(){
+      function () {
         this.setState({
           word: this.state.word,
           wordLetterCount: this.state.wordLetterCount,
@@ -336,32 +368,44 @@ class MainBody extends React.Component {
           modalMsg: this.state.modalMsg
         });
       }
-      .bind(this),
+        .bind(this),
       100
     );
   }
 
-  render(){
-    return(
+  /**
+   * render all the game components
+   */
+  render() {
+    let gameButton = '';
+    if(this.state.inGame){
+      gameButton = <button id="guessWord" className="btn" type="button" name="button" onClick={() => this.guesWordClick()}>Guess Word</button>;
+    }else{
+      gameButton = <button id="newGame" className="btn" type="button" name="button" onClick={() => this.newGameClick()}>New Game</button>;
+    }
+
+    return (
       <div>
         <h1>Hangman</h1>
         <div id="hangmanIconCont">
-          <HangmanIcon tries = {this.state.numOfTries}></HangmanIcon>
+          <HangmanIcon tries={this.state.numOfTries}></HangmanIcon>
         </div>
         <div id="gameBody">
-          <GameBody guessText = {this.state.gameBodyWord}></GameBody>
+          <div id="guessText">{this.state.gameBodyWord}</div>
         </div>
         <div id="mouseInputButtons">
-          <MouseInput letters = {this.state.keyPressed} onClick = {(e) => this.guessLetter(e)}></MouseInput>
+          <MouseInput letters={this.state.keyPressed} onClick={(e) => this.guessLetter(e)}></MouseInput>
         </div>
-        <GuessWord inGame = {this.state.inGame}  onClick={() => this.guesWordClick()}></GuessWord>
-        <NewGame inGame = {this.state.inGame} onClick={() => this.newGameOnClick()}></NewGame>
-        <Modal show = {this.state.showModal} type = {this.state.modalType} msg = {this.state.modalMsg} onClick={(action, input) => this.modalAction(action, input)}></Modal>
+        {gameButton}
+        <Modal show={this.state.showModal} type={this.state.modalType} msg={this.state.modalMsg} onClick={(action, input) => this.modalAction(action, input)}></Modal>
       </div>
     );
   }
 }
 
+/**
+ * generate the MainBody container and get the wordlist from the api
+ */
 class MainCont extends React.Component {
   constructor(props) {
     super(props);
@@ -372,48 +416,54 @@ class MainCont extends React.Component {
     };
   }
 
+  /**
+   * get the words from the api and update the worldList state
+   */
   componentWillMount() {
-    if(!this.state.wordList || this.state.wordList.length == 0){
+    if (!this.state.wordList || this.state.wordList.length == 0) {
       fetch("https://api.datamuse.com/words?ml=anime")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            error: null,
-            isLoaded: true,
-            wordList: result
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: false,
-            error
-          });
-        }
-      )
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              error: null,
+              isLoaded: true,
+              wordList: result
+            });
+          },
+          (error) => {
+            this.setState({
+              isLoaded: false,
+              error
+            });
+          }
+        )
     }
   }
 
+  /**
+   * render the MainBody component if the words are loaded from api
+   */
   render() {
     const { error, isLoaded, wordList } = this.state;
 
-    if(error){
+    if (error) {
       return (
         <div>
           Error: {error.message}
         </div>
       );
-    }else if(isLoaded){
+    } else if (isLoaded) {
       return (
         <div>
           <div id="mainBody">
-            <MainBody wordList = {this.state.wordList}>
+            <MainBody wordList={this.state.wordList}>
             </MainBody>
           </div>
         </div>
       );
-    }else{
-      return(
+    } else {
+      return (
         <div>
           <div id="mainBody">
             Loading...
