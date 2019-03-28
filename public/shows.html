@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Binge - shows</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/DIYBootstrap.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/shows.css" />
+</head>
+<body>
+  <div id="navbarCont">
+    <!-- navbar -->
+    <div id="navbar">
+      <div id="pageLoader"></div>
+      <!-- Home -->
+      <div class="nav-item">
+        <a class="nav-icon" href="main.html"><i class="fab fa-fort-awesome"></i></a>
+      </div>
+
+      <!-- Categories -->
+      <div class="nav-item">
+        <a class="nav-icon" href="shows.html"><i class="fas fa-th-list"></i></a>
+        <div class="nav-sub-item-cont">
+          <a class="nav-sub-item" href="shows.html?category=anime">
+            Anime
+          </a>
+          <a class="nav-sub-item" href="shows.html?category=movie">
+            Movies
+          </a>
+        </div>
+      </div>
+
+      <!-- Hangman Game -->
+      <div class="nav-item">
+        <a class="nav-icon" href="hangman.html"><i class="fas fa-male"></i></a>
+      </div>
+
+      <!-- Hangman Game (React) -->
+      <div class="nav-item">
+        <a class="nav-icon" href="hangmanReact.html">
+          <i class="fas fa-male"></i>
+          <i class="fab fa-react hangman-react-icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="mainCont">
+    <!-- main body -->
+    <div id="mainBody">
+      <!-- filter container -->
+      <div id="filterCont">
+        <!-- categories filter -->
+        <div id="ategoriesFilter" class="filterType">
+          <div class="filterIcon">
+            <i class="fas fa-th-large"></i>
+          </div>
+        </div>
+
+        <!-- alphabet filter -->
+        <div id="ategoriesFilter" class="filterType">
+          <div class="filterIcon">
+            <i class="fas fa-sort-alpha-down"></i>
+            <i class="fas fa-sort-alpha-up d-none"></i>
+          </div>
+        </div>
+
+        <!-- date filter -->
+        <div id="dateFilter" class="filterType">
+          <div class="filterIcon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+        </div>
+
+        <!-- rating filter -->
+        <div id="ratingFilter" class="filterType">
+          <div class="filterIcon">
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- filter result -->
+      <table id="resultCont">
+        <!-- naturo -->
+        <tr>
+          <!-- title section -->
+          <td class="showTitle">
+            <!-- title name -->
+            <h2>Naruto</h2>
+
+            <!-- show image -->
+            <div class=title-image>
+              <img src="images/shows/title_image/naruto.jpg" />
+            </div>
+
+            <!-- rating -->
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </td>
+
+          <!-- about show -->
+          <td class="aboutShow">
+            The Village Hidden in the Leaves is home to the stealthiest ninja. But twelve years earlier, a fearsome Nine-tailed Fox terrorized the village before it was subdued and its spirit sealed within the body of a baby boy.
+          </td>
+
+          <td class="topReview">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </td>
+        </tr>
+
+        <!-- Your Name -->
+        <tr>
+          <td class="showTitle">
+            <!-- title name -->
+            <h2>Your Name</h2>
+
+            <!-- show image -->
+            <div class=title-image>
+              <img src="images/shows/title_image/your_name.jpg" />
+            </div>
+
+            <!-- rating -->
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </td>
+
+          <!-- about show -->
+          <td class="aboutShow">
+            A teenage boy and girl embark on a quest to meet each other for the first time after they magically swap bodies.              </div>
+          </td>
+
+          <!-- top review -->
+          <td class="topReview">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </td>
+        </tr>
+
+        <!-- Attack on Tian -->
+        <tr>
+          <td class="showTitle">
+            <!-- title name -->
+            <h2>Attack on Tian</h2>
+
+            <!-- show image -->
+            <div class=title-image>
+              <img src="images/shows/title_image/attack_on_titan.jpg" />
+            </div>
+
+            <!-- rating -->
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </td>
+
+          <!-- about show -->
+          <td class="aboutShow">
+            Known in Japan as Shingeki no Kyojin, many years ago, the last remnants of humanity were forced to retreat behind the towering walls of a fortified city to escape the massive, man-eating Titans that roamed the land outside their fortress. Only the heroic members of the Scouting Legion dared to stray beyond the safety of the walls – but even those brave warriors seldom returned alive. Those within the city clung to the illusion of a peaceful existence until the day that dream was shattered, and their slim chance at survival was reduced to one horrifying choice: kill – or be devoured!                </div>
+          </td>
+
+          <!-- top review -->
+          <td class="topReview">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div id="footer">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/javascript" src="js/footerJs.js"></script>
+    <script type="text/javascript" src="js/DIYBootstrapJs.js"></script>
+    <script type="text/javascript" src="js/mainJs.js"></script>
+  </div>
+</body>
