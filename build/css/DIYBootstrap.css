@@ -1,0 +1,225 @@
+/*
+breakpoints:
+Extra small   <768px
+Small         >=768px
+Medium        >=992px
+Large         >=1200px
+*/
+
+body *{
+  box-sizing: border-box;
+}
+
+/* DIY Bootstrap modal */
+.modal{
+  display: none;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 90;  // navbar cont is 100
+}
+
+.modalCont{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: grid;
+  min-width: 300px;
+  max-width: calc(100% - 20px);
+  background-color: rgb(229, 229, 229);
+  border-radius: 25px;
+}
+
+.modal-body{
+  height: calc(100% - 65px);
+  width: calc(100% - 20px);
+  display: block;
+  margin: 55px 10px 10px 10px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  word-break: break-word;
+}
+
+.modal-close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-block;
+  background-color: rgb(219, 74, 92);
+  border-radius: 25px;
+  padding: 10px 13px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modal-close:hover{
+  background-color: rgb(224, 100, 115);
+}
+
+.modal-close i{
+  display: block;
+}
+
+#modalTextInputPopup{
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 5px 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+#modalBtn{
+  position: absolute;
+  right: 0;
+  bottom: -70px;
+  min-width: 100px;
+  display: none;
+  width: 100%;
+}
+
+#modalBtn.d-block{
+  display: block;
+}
+
+/* sizing */
+.w-25{
+  width: 25%;
+}
+
+.w-50{
+  width: 50%;
+}
+
+.w-75{
+  width: 75%;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.w-atuo{
+  width: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .w-xs-25{
+    width: 100%;
+  }
+
+  .w-xs-50{
+    width: 100%;
+  }
+
+  .w-xs-75{
+    width: 100%;
+  }
+
+  .w-xs-100{
+    width: 100%;
+  }
+
+  .w-xs-atuo{
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .w-sm-25{
+    width: 100%;
+  }
+
+  .w-sm-50{
+    width: 100%;
+  }
+
+  .w-sm-75{
+    width: 100%;
+  }
+
+  .w-sm-100{
+    width: 100%;
+  }
+
+  .w-sm-atuo{
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .w-md-25{
+    width: 100%;
+  }
+
+  .w-md-50{
+    width: 100%;
+  }
+
+  .w-md-75{
+    width: 100%;
+  }
+
+  .w-md-100{
+    width: 100%;
+  }
+
+  .w-md-atuo{
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .w-lg-25{
+    width: 100%;
+  }
+
+  .w-lg-50{
+    width: 100%;
+  }
+
+  .w-lg-75{
+    width: 100%;
+  }
+
+  .w-lg-100{
+    width: 100%;
+  }
+
+  .w-lg-atuo{
+    width: auto;
+  }
+}
+
+/* Spacing */
+.p-0{
+  padding: 0 !important;
+}
+
+/* display */
+.d-none{
+  display: none !important;
+}
+
+.d-block{
+  display: block;
+}
+
+.o-0{
+  opacity: 0;
+}
+
+.o-1{
+  opacity: 1;
+}

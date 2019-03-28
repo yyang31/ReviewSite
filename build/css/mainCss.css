@@ -1,0 +1,177 @@
+/*
+color:
+main-blue: rgb(68, 97, 145)
+main-blue-hover: rgb(47, 83, 142)
+main-green: rgb(62, 126, 135)
+soft-white: rgb(229, 229, 229)
+
+breakpoints:
+Extra small   <768px
+Small         >=768px
+Medium        >=992px
+Large         >=1200px
+*/
+
+#featureGallery{
+  height: 350px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+@media screen and (max-width: 768px){
+  #featureGallery{
+    height: 300px;
+  }
+}
+
+#galleryCont{
+  height: 100%;
+  width: 100%;
+}
+
+#galleryDetail{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 20px 70% 20px 20px;
+  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(68, 97, 145, 1));
+  border-radius: 25px;
+}
+
+#galleryTitle{
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  display: inline-block;
+  text-shadow: 0 4px 15px black;
+}
+
+#galleryBody{
+  height: calc(100% - 175px);
+  display: block;
+  color: white;
+  text-shadow: 0 2px 5px black;
+}
+
+#galleryDetailButton{
+  position: absolute;
+  bottom: 20px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  color: rgb(229, 229, 229);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#galleryDetailButton:hover{
+  color: white;
+  text-shadow: 0 4px 10px black;
+}
+
+#galleryButton:hover{
+  background-color: rgb(72, 136, 145);
+}
+
+.feature-cont{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+}
+
+.feature-cont a{
+  display: block;
+  height: 100%;
+}
+
+.feature-cont img{
+  height: auto;
+  width: 100%;
+}
+
+.feature-cont:not(.active){
+  display: none;
+}
+
+.section {
+  display: inline-block;
+  padding-top: 20px;
+  float: left;
+}
+
+.section-body{
+  padding: 20px;
+  background-color: rgba(229, 229, 229, 0.7);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+  border-radius: 25px;
+}
+
+.anime-block-cont{
+  overflow: hidden;
+  height: 200px;
+  display: flex;
+  cursor: pointer;
+}
+
+.section-anime-block{
+  height: 100%;
+  width: auto;
+  display: inline-block;
+  margin-right: 20px;
+  float: left;
+}
+
+.section-anime-block.last{
+  margin-right: 0;
+}
+
+.section-anime-block:hover{
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+  height: 116%;
+  position: relative;
+  top: -8%;
+}
+
+.rating i{
+  text-shadow: 0 1px 15px rgba(0, 0, 0, 0.8);
+}
+
+.section-anime-block:hover .rating{
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5% 0;
+}
+
+.section-anime-block:hover h3{
+  display: block;
+  width: 100%;
+  cursor: default;
+}
+
+.section-anime-block img{
+  height: 100%;
+  width: auto;
+  cursor: pointer;
+}
+
+#topSection{
+  height: 300px;
+}
+
+/* FOOTER */
+#footer {
+  background-color: rgb(224, 236, 255);
+}
