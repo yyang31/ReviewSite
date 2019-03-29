@@ -299,6 +299,7 @@ class MainBody extends React.Component {
 
             if (tries == 5) {
               tempInGame = false;
+              this.gameLostMsg();
             }
           }
 
